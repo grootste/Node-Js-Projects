@@ -1,4 +1,8 @@
-const add = require('./utils.js')
+const chalk = require('chalk')
+const getNotes = require('./notes.js')
 
-const sum = add(4, -2)
-console.log(sum)
+const msg = getNotes('My name is Baibhav !!!!!!')
+console.log(msg)
+
+const greenmsg = chalk.green.inverse.bold('My name is Baibhav Singh!!!!!!!')
+console.log(greenmsg)
