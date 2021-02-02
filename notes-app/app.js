@@ -1,5 +1,5 @@
 const chalk = require('chalk')
-const { demandOption, argv } = require('yargs')
+const { argv } = require('yargs')
 const yargs = require('yargs')
 const getNotes = require('./notes.js')
 
@@ -18,10 +18,17 @@ yargs.command({
             describe : 'Note title',
             demandOption : true,
             type: 'string'
+        },
+        body: {
+            describe: 'Note Body',
+            demandOption: true,
+            type: 'string'
         }
     },
-    handler : function () {
+  
+    handler: function (argv) {
         console.log('Title:' + argv.title)
+        console.log('Body:' + argv.body)
     }
 })
 
@@ -30,7 +37,7 @@ yargs.command({
     command : 'remove',
     describe : 'Removing the note ',
     handler :  function() {
-        console.log('Removing a note')
+        console.log('Removing a note',argv)
     }
     
 })
@@ -40,7 +47,7 @@ yargs.command({
     command: 'read',
     describe: 'Read the note',
     handler: function(){
-        console.log('Reading the note')
+        console.log('Reading the note', argv)
     }
 })
 
@@ -49,10 +56,12 @@ yargs.command({
     command:'list',
     describe:'Listing the note',
     handler : function (){
-        console.log('Listing the note')
+        console.log('Listing the note', argv)
     }
 })
 
 //add, remove, read, list
 yargs.parse()
+
+
 
