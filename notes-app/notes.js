@@ -24,6 +24,27 @@ const addNote = function(title, body){
 }
 }
 
+const removeNote = function(title){
+    const notes = loadNotes()
+    const removableNote = notes.filter(function(note){
+        return note.title === title
+
+    })
+
+
+if (removableNote.length===0){
+    console.log('No notes found from that title')
+}
+else{
+    const remove= function(notes){
+        list=[]
+
+    }
+     console.log('Notes removed')
+}
+
+}
+
 const saveNotes = function(notes){
     const dataJSON = JSON.stringify(notes)
     fs.writeFileSync('notes.json', dataJSON)
@@ -46,5 +67,6 @@ const loadNotes = function(){
  
 module.exports = {
     getNote : getNote,
-    addNote : addNote
+    addNote : addNote,
+    removeNote : removeNote
 }
