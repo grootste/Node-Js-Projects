@@ -1,5 +1,6 @@
 const fs = require('fs')
 
+
 const getNote = function(a){
     return a
 }
@@ -26,21 +27,18 @@ const addNote = function(title, body){
 
 const removeNote = function(title){
     const notes = loadNotes()
-    const removableNote = notes.filter(function(note){
-        return note.title === title
+    const noteTokeep = notes.filter(function(note){
+        return note.title !== title
 
     })
 
 
-if (removableNote.length===0){
-    console.log('No notes found from that title')
+if (noteTokeep.length!==0){
+    console.log('Notes found from that title')
+    saveNotes(noteTokeep)
 }
 else{
-    const remove= function(notes){
-        list=[]
-
-    }
-     console.log('Notes removed')
+     console.log('Notes not foudn to be removed')
 }
 
 }
