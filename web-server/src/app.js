@@ -3,7 +3,7 @@ const  express = require('express')
 
 
 const app = express()
-const publicDirectoryPath = path.join(__dirname, '../src')
+const publicDirectoryPath = path.join(__dirname, '../public')
 
 app.set ('view engine', 'hbs')
 app.use(express.static(publicDirectoryPath))
@@ -11,7 +11,9 @@ app.use(express.static(publicDirectoryPath))
 
 
 app.get('', (req, res) =>{
-    res.render('index')
+    res.render('index', {
+        
+    })
 })
 
 
