@@ -1,4 +1,2 @@
 
-notes-app/node_modules/yargs/locales/zh_CN.json
-notes-app/node_modules/yargs/locales/hu.json
-*.json
+node_modules/
