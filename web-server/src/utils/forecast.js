@@ -11,7 +11,7 @@ const forecast = (latitude, longitude, callback) => {
             callback('Nothing to Geocode', undefined)
         } 
         else{ 
-                callback(undefined, 'There are ' + body.current.weather[0].description + '.  It is currently  ' + body.current.temp  + '  Kelvin out.    There is a '+ body.hourly[0].pop + '% chances of rain.')
+                callback(undefined, 'There are ' + body.current.weather[0].description + '.  It is currently  ' + body.current.temp  + '  Kelvin out. The temperature high is  '+ body.daily[0].temp.max + '  and low is  ' + body.daily[0].temp.min +' .   There is a '+ body.hourly[0].pop + '% chances of rain.')
         } 
        
     }
