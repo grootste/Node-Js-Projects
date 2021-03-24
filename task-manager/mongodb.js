@@ -1,10 +1,11 @@
 //CRUD create read update delete
 
-const mongodb = require('mongodb')
-const MongoClient = mongodb.MongoClient
+const { MongoClient, ObjectID} = require('mongodb') 
 
 const connectionURL= 'mongodb://127.0.0.1:27017'
 const databaseName = 'task-manager'
+
+
 
 MongoClient.connect(connectionURL, {useNewUrlParser: true}, (error, client)=> {
     if(error){
@@ -13,35 +14,25 @@ MongoClient.connect(connectionURL, {useNewUrlParser: true}, (error, client)=> {
 
     const db = client.db(databaseName)
 
-    // db.collection('user').insertOne({
-    //     name: 'Baibhav',
-    //     Age: 24
-    // }, (error, result) =>{
+    // db.collection('users').findOne({ _id: new ObjectID("6058d7dbcd94e9148cedc870")}, (error, user)=>{
     //     if(error){
-    //         return console.log('Unable to insert user')
+    //         return console.log('Unable to fetch the  data')
     //     }
 
-    //     console.log(result.ops)
+    //     console.log(user)
+
     // })
-    
-    db.collection('task').insertMany([
-    {
-        description: 'Complete the task manager app',
-        completed : false
-    },{
-        description: 'Complete Portfolio website',
-        completed : false
-    },{
-        description: 'Complete the Resime file',
-        completed : true
-    }
-    
-    ], (error, result) => {
-        if(error){
-            return console.log('Unable to insert user')
-        }
-    
-        console.log(result.ops)
+
+    db.collection('task').find({completed : false}).toArray((error, nothing)=>{
+        console.log(nothing)
+
+
+    })
+
+    db.collection('task').findOne({_id: new ObjectID("6058c8fb2a226a397c9ada88")}).toArray((error, count)=>{
+        console.log(count)
+
+
     })
 
 })
