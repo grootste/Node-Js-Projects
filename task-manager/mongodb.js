@@ -1,6 +1,6 @@
 //CRUD create read update delete
 
-const { MongoClient, ObjectID} = require('mongodb') 
+const { MongoClient, ObjectID, GridFSBucket} = require('mongodb') 
 
 const connectionURL= 'mongodb://127.0.0.1:27017'
 const databaseName = 'task-manager'
@@ -35,17 +35,47 @@ MongoClient.connect(connectionURL, {useNewUrlParser: true}, (error, client)=> {
 
     // })
 
-   const updatePromise = db.collection('users').updateOne({
-        _id: new ObjectID("605233ce1553203ae87249aa")
-    }, {
-        $inc: {
-            Age: 1
-        }
+//    const updatePromise = db.collection('users').updateOne({
+//         _id: new ObjectID("605233ce1553203ae87249aa")
+//     }, {
+//         $inc: {
+//             Age: 1
+//         }
 
+//     }).then((result) =>{
+//         console.log(result)
+//     }).catch((error) =>{
+//         console.log(error)
+//     })
+     
+//      db.collection('task').updateMany({
+//           completed : false
+//        }, { 
+//            $set:  {
+//             completed: true
+//           }
+       
+//       }).then((result) =>{
+//           console.log(result.modifiedCount)
+//       }).catch((error) => {
+//           console.log(error)
+//       })
+
+    // db.collection('users').deleteMany({
+    //     age: 27
+    // }).then((result) =>{
+    //     console.log(result)
+    // }).catch((error) =>{
+    //     console.log(error)
+    // })
+ 
+    db.collection('task').deleteOne({
+        description : "Complete the Resime file"
     }).then((result) =>{
         console.log(result)
-    }).catch((error) =>{
+    }).catch((error) => {
         console.log(error)
     })
 
-})
+ })
+
