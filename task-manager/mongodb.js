@@ -23,16 +23,29 @@ MongoClient.connect(connectionURL, {useNewUrlParser: true}, (error, client)=> {
 
     // })
 
-    db.collection('task').find({completed : false}).toArray((error, nothing)=>{
-        console.log(nothing)
+    // db.collection('task').find({completed : false}).toArray((error, nothing)=>{
+    //     console.log(nothing)
 
 
-    })
+    // })
 
-    db.collection('task').findOne({_id: new ObjectID("6058c8fb2a226a397c9ada88")}).toArray((error, count)=>{
-        console.log(count)
+    // db.collection('task').findOne({_id: new ObjectID("6058c8fb2a226a397c9ada88")}).toArray((error, count)=>{
+    //     console.log(count)
 
 
+    // })
+
+   const updatePromise = db.collection('users').updateOne({
+        _id: new ObjectID("605233ce1553203ae87249aa")
+    }, {
+        $inc: {
+            Age: 1
+        }
+
+    }).then((result) =>{
+        console.log(result)
+    }).catch((error) =>{
+        console.log(error)
     })
 
 })
