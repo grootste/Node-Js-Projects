@@ -13,6 +13,7 @@ MongoClient.connect(connectionURL, {useNewUrlParser: true}, (error, client)=> {
     }
 
     const db = client.db(databaseName)
+    console.log('Connected to the database')
 
     // db.collection('users').findOne({ _id: new ObjectID("6058d7dbcd94e9148cedc870")}, (error, user)=>{
     //     if(error){
@@ -69,13 +70,13 @@ MongoClient.connect(connectionURL, {useNewUrlParser: true}, (error, client)=> {
     //     console.log(error)
     // })
  
-    db.collection('task').deleteOne({
-        description : "Complete the Resime file"
-    }).then((result) =>{
-        console.log(result)
-    }).catch((error) => {
-        console.log(error)
-    })
+    // db.collection('task').deleteOne({
+    //     description : "Complete the Resime file"
+    // }).then((result) =>{
+    //     console.log(result)
+    // }).catch((error) => {
+    //     console.log(error)
+    // })
 
  })
 
