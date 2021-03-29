@@ -30,6 +30,7 @@ me.save().then(() =>{
     console.log(me)
 }).catch((error) => {
     console.log('Error!', error)
+    console.log("heloo guys this data has got error")
 })
 
 // const task = mongoose.model('Task', {
