@@ -11,6 +11,15 @@ const user =mongoose.model('User', {
         type: String,
         required: true
     },
+    email:{
+        type: String,
+        required: true,
+        validate(value){
+            if(validator.isEmail(value)){
+                throw new Error('Email is invalid')
+            }
+        }
+    }
     age :{
         type: Number,
         validate(value){
