@@ -27,6 +27,17 @@ const user =mongoose.model('User', {
                 throw new Error('Age must be a postive number')
             }
         }
+    },
+    password:{
+        type: String,
+        required: true,
+        minlength: 7,
+        trim: true,
+        validate(value) {
+            if(value.tolowerCase().includes('password')){
+                throw new Error('Password cannot be set to password')
+            }
+        }
     }
 })
 
