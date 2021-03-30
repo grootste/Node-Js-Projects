@@ -19,7 +19,7 @@ const user =mongoose.model('User', {
                 throw new Error('Email is invalid')
             }
         }
-    }
+    },
     age :{
         type: Number,
         validate(value){
@@ -32,7 +32,8 @@ const user =mongoose.model('User', {
 
 const me = new user({
     name : 'Baibhav',
-    age: 'nice'
+    email: none
+   
 })
 
 me.save().then(() =>{
