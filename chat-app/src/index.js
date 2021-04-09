@@ -1,9 +1,12 @@
+ const path = require('path')
  const express = require('express')
 
  const app =express()
 
- const port = 3000
+ const port = process.env.PORT || 3000
+
+ const publicDirectoryPath=  path.join(__dirname, '../public')
  
  app.listen(port, ()=>{
-     console.log('Server is up on 3000')
+     console.log('Server is up on'+ port)
  })
