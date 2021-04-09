@@ -11,7 +11,6 @@ const userSchema = new mongoose.Schema({
     },
     email:{
         type: String,
-        match: /.+\@.+\..+/,
         unique: true,
         required: true,
         trim: true,
@@ -50,6 +49,16 @@ const userSchema = new mongoose.Schema({
     }]
   
 })
+
+userSchema.methods.toJSON = function() {
+    const user = this
+    const userObject = user.toObject()
+
+    delete userObject.password
+    delete userObject.tokens
+
+    return userObject
+}
 
 userSchema.methods.generateAuthToken= async function(){
     const user = this
