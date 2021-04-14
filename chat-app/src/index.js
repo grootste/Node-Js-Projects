@@ -24,7 +24,12 @@
     //      count++
     //     io.emit('countUpdated', count)
     //  })
- })
+
+    socket.on('sendMessage', (message) =>{
+        io.emit('message', message)
+    })
+
+})   
  
  server.listen(port, () => {
      console.log('Server is up on port '+ port)
