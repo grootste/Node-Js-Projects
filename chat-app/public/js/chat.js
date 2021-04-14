@@ -1,7 +1,7 @@
 const socket = io()
 
 socket.on('message', (message)=>{
-    console.log(message)
+    console.log('The message is ', message)
 })
 
 // socket.on('countUpdated', (count) =>{
