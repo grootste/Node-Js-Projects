@@ -10,7 +10,7 @@ socket.on('message', (message)=>{
 
 document.querySelector('#sendMessage').addEventListener('click', ()=>{
     console.log('Clicked')
-    socket.emit('message')
+    io.emit('message')
 })
 
 
