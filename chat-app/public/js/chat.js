@@ -14,8 +14,6 @@ document.querySelector('#message-form').addEventListener('submit', (e)=>{
      const message = document.querySelector('input').value
 
     socket.emit('sendMessage', message)
-    console.log('Clicked')
-    io.emit('message')
 })
 
 
