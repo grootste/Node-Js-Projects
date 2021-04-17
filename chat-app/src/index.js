@@ -35,7 +35,7 @@
             return callback('Profanity is not allowed')
         }
 
-        io.emit('message', generateMessage(message))
+        io.to('Consultaion').emit('message', generateMessage(message))
         callback()
     })
 
