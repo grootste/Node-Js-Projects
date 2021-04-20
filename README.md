@@ -9,4 +9,4 @@ This repository includes four Node js App. They are:-
 
 3. Task Manager App:  This app contains basic CRUD operation using Express, Rest API, MongoDB, and mongoose. The app endpoints are then tested using Postman.
  
-4. Chat App: This app people can join the room using room name and username and chat with all the people in that room simultaneously. https://baibhav-chat-app.herokuapp.com/
+4. Chat App: This app people can join the room using room name and username and chat with all the people in that room simultaneously. https://baibhav-chat-app.herokuapp.com/ . It uses socket.io to send and receive the messages from the users.
